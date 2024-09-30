@@ -1,0 +1,27 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "This is vanakam react by eswar",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eswarlearn/react-app.git"
+  },
+  "keywords": [
+    "react",
+    "vanakam",
+    "react-1"
+  ],
+  "author": "Eswaramoorthy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eswarlearn/react-app/issues"
+  },
+  "homepage": "https://github.com/eswarlearn/react-app#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
