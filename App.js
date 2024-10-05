@@ -1,51 +1,49 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// const heading = React.createElement("h1", {id:"hdng"}, " hello world by react");
-// //{} it a object to give attribute to the class
-// console.log(heading);//heading is a object not html object
-
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(heading);
-// // render method is converting object to html tag
-
-
-// const nested = React.createElement("div",
-//     {id:"parent"},
-//     [React.createElement("div",
-//         {id:"child"},
-//         [ React.createElement("h1",{},"i am h1..."),React.createElement("h2",{},"i am h2")]
-//     ),
-//     React.createElement("div",
-//         {id:"child2"},
-//         [ React.createElement("h1",{},"i am h1"),React.createElement("h2",{},"i am h2")]
-//     )]
-// )
-
-// Rect Element
+/*
+* Header
+* - Logo
+* -Nav Iteams
+* Body
+* - Search 
+* - RestaurantContainer
+* Footer
+* -Link
+* -Contach
+* -Adress 
+* -CopyRights 
+*/
 
 
-const reaEle = <h1 id="jsxHead">element</h1>;
-
-// React functional component
-const JsxHeading = () => {
-    return <h1 id="jsxHead">JSX syntax in React</h1>;
-};
-
-const str = 'from js';
-
-// React functional component
-const HeadingComponent = () => {
-    return (
-        <div>
-            <JsxHeading />
-            <h1 className="component">Component Composition</h1>
-            <h2>{100 + 200}</h2>
-            { reaEle }
-            {/* We can use JS inside {} */}
+const Header = () => {
+    return(
+        <div className="header">
+            <div className="logo-container">
+                <img
+                className="logo"
+                src="https://img.freepik.com/premium-vector/indian-restaurant-icon-elephant-spice-leaf_8071-48367.jpg?w=740" />
+            </div>
+            <div className="nav-iteam">
+                <ul>
+                    <li>Home</li>
+                    <li>About Us</li>
+                    <li>Contact Us</li>
+                    <li>Cart</li>
+                </ul>
+            </div>
         </div>
     );
-};
+}
+
+const AppLayout = () => {
+    return(
+        <div className="app">
+            <Header/>
+        </div>
+
+    );
+}
 
 // Create root and render
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<HeadingComponent />);
+root.render(<AppLayout />);
