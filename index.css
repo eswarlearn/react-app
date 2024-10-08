@@ -32,9 +32,9 @@
 }
 
 .res-card{
-    padding: 10px;
+    margin: 5px;
     width: 200px;
-    height: 320px;
+    /* height: 320px; */
     /* border: 1px solid black; */
 }
 
