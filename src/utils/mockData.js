@@ -111,7 +111,7 @@ const resList=[
           "Chinese",
           "Fast Food"
         ],
-        "avgRating": 4.3,
+        "avgRating": 3.3,
         "veg": true,
         "parentId": "140255",
         "avgRatingString": "4.3",
@@ -225,7 +225,7 @@ const resList=[
           "Biryani",
           "Tandoor"
         ],
-        "avgRating": 4.3,
+        "avgRating": 4.5,
         "parentId": "27123",
         "avgRatingString": "4.3",
         "totalRatingsString": "1.0K+",
@@ -765,7 +765,7 @@ const resList=[
           "Continental",
           "Beverages"
         ],
-        "avgRating": 4.3,
+        "avgRating": 2.3,
         "parentId": "26828",
         "avgRatingString": "4.3",
         "totalRatingsString": "573",
