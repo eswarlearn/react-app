@@ -1,3 +1,22 @@
+/* search header */
+.filter{
+    display: flex;
+}
+
+
+.Search{
+    padding: 10px;
+}
+
+.res-logo{
+   width: 100%;
+}
+
+.filter-btn{
+    margin: 10px;
+    cursor: pointer;
+}
+
 .header{
     display: flex;
     justify-content: space-between;
@@ -30,7 +49,7 @@
     padding: 10px;
     margin: 10px;
 }
-
+/*****body *****/
 .res-card{
     margin: 5px;
     width: 200px;
@@ -49,22 +68,10 @@
     flex-wrap: wrap;
 }
 
-.Search{
-    padding: 10px;
-}
-
-.res-logo{
-   width: 100%;
-}
-
-.filter-btn{
-    margin: 10px;
-    cursor: pointer;
-}
 
 .shimmer-container{
     display: flex;
-    margin-top: 80px;
+    margin-top: 41px;
 }
 
 .shimmer-card{  
@@ -73,3 +80,4 @@
     height: 400px;
     background-color: #f0f0f0;
 }
+

@@ -8,6 +8,10 @@ import Shimmer from "./Shrimmer";
 const Body =() =>{
 //Locat State Variable - Super powerul Variable
 const [listOfRestaurants , setlistOfRestaurants] = useState([]);
+//whenever the state variable is updated whole body component is re-rendered or reconcilated
+const [searchText, setSearchText]=useState("");
+console.log('body render');
+
 //useState(resList); mockdata is removed
 //useEffect is a  function with two arguments(below) , which is call after the body component is rendered
 //1) callback function and 2)dependancy
@@ -18,7 +22,7 @@ fetchData();
 
 const fetchData = async () =>{
     const data = await fetch (
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.89960&lng=80.22090&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
     const json = await data.json();
@@ -73,11 +77,22 @@ const fetchData = async () =>{
 
     return listOfRestaurants.length === 0 ? <Shimmer/> : (
         <div className="body">
-            <div className="Search">
-                <input type="text"/>
-                <input type="button" value="search"/>
-            </div>
             <div className="filter">
+            <div className="Search">
+                <input type="text" 
+                className="search-box" 
+                value={searchText}
+                onChange={(e) => {
+                    setSearchText(e.target.value);
+                }} />
+                <button onClick={()=>{
+                console.log(searchText);
+                const filteredRestaurant = listOfRestaurants.filter((res)=>res.info.name.includes(searchText) );
+
+                setlistOfRestaurants(filteredRestaurant);
+
+                }}>Search</button>
+            </div>
                 <button className="filter-btn" onClick={()=>{
                     const filteredList = listOfRestaurants.filter(
                         (res) => res.info.avgRating > 4
