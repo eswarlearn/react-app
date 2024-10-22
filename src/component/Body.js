@@ -8,6 +8,10 @@ import Shimmer from "./Shrimmer";
 const Body =() =>{
 //Locat State Variable - Super powerul Variable
 const [listOfRestaurants , setlistOfRestaurants] = useState([]);
+
+//altering
+
+const[filteredRestaurant,setFilteredRestaurant] = useState([]);
 //whenever the state variable is updated whole body component is re-rendered or reconcilated
 const [searchText, setSearchText]=useState("");
 console.log('body render');
@@ -31,7 +35,8 @@ const fetchData = async () =>{
     //now use state variable
     //add optional chaining
     setlistOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    
+    //atering
+    setFilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
 }
 // Normal js varible
@@ -87,9 +92,9 @@ const fetchData = async () =>{
                 }} />
                 <button onClick={()=>{
                 console.log(searchText);
-                const filteredRestaurant = listOfRestaurants.filter((res)=>res.info.name.includes(searchText) );
+                const filteredRestaurants = listOfRestaurants.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()) );
 
-                setlistOfRestaurants(filteredRestaurant);
+                setFilteredRestaurant(filteredRestaurants);
 
                 }}>Search</button>
             </div>
@@ -106,7 +111,7 @@ const fetchData = async () =>{
             <div className="restro-container">
               {/* Use map to iterate over resList 
               not using key(not acceptable)<<<<< index as key <<< unique key*/}
-              {listOfRestaurants.map((restaurant) => (
+              {filteredRestaurant.map((restaurant) => (
                     <RestaurantCard key={restaurant.info.id} resData={restaurant} />
                 ))}
                 {/* <RestaurantCard resName="KFC" cusain="Hand Burker, Fries"/> */}
