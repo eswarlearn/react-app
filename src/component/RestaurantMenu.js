@@ -1,32 +1,51 @@
 import { useEffect, useState } from "react";
 import Shimmer from "./Shrimmer";
-const [resInfo,setResInfo] = useState("");
 
-const RestaurantMenu =() => {
-    useEffect(()=>{
-        fetchMenu();
-    },[]);
+const RestaurantMenu = () => {
+  const [resInfo, setResInfo] = useState("");
 
-    const fetchMenu = async () =>{
-        const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.89960&lng=80.22090&restaurantId=748065&catalog_qa=undefined&submitAction=ENTER");
+  useEffect(() => {
+    fetchMenu();
+  }, []);
 
-        const json= await data.json();
-        console.log(json);
-        setResInfo(json.data);
-    }
-    return (resInfo === "") ? (
-        <Shimmer/>
-    ):(
-        <div className="menu">
-            <h1>Name of Restaurant</h1>
-            <h2>Menu</h2>
-            <ul>
-                <li>Briyani</li>
-                <li>Burgers</li>
-                <li>Diet Coke</li>
-            </ul>
-        </div>
-    )
-}
+  const fetchMenu = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.89960&lng=80.22090&restaurantId=748065&catalog_qa=undefined&submitAction=ENTER"
+    );
+
+    const json = await data.json();
+    console.log(json);
+    setResInfo(json.data);
+  };
+
+//   const cards = resInfo?.cards || [];
+  const {name,cloudinaryImageId,costForTwoMessage,cuisines,avgRating} = resInfo?.cards?.[2]?.card?.card?.info || "No items found";
+  // console.log("menu=>"+name);
+  // console.log("cuisines=>"+cuisines);
+
+  const {itemCards}= resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card?.card || "No items found";
+
+  console.log(itemCards);
+  
+
+  // console.log("call==>" + resInfo);
+  // const {text}= json.data?.cards[0]?.card?.card;
+  // console.log("text....>"+text);
+
+  return resInfo === "" ? (
+    <Shimmer />
+  ) : (
+    <div className="menu">
+      <h1>{name}</h1>
+      <h4>{cuisines.join(", ")} - {costForTwoMessage}</h4>
+      <h4>ratings :- {avgRating}</h4>
+      <ul>
+        <li>Briyani</li>
+        <li>Burgers</li>
+        <li>Diet Coke</li>
+      </ul>
+    </div>
+  );
+};
 
 export default RestaurantMenu;
