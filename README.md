@@ -18,3 +18,21 @@
 - can host on http and https
 - Tree Shaking - remove the unused code
 - Different dev and prod bundler
+
+# Vanakam 
+/*
+* Header
+* - Logo
+* -Nav Iteams
+* Body
+* - Search 
+* - RestaurantContainer
+*   -- RestaurantCard
+*   -- Img
+*   -- Name of rest , star rating, cusine, deteils
+* Footer
+* -Link
+* -Contach
+* -Adress 
+* -CopyRights 
+*/
