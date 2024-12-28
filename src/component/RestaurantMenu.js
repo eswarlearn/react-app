@@ -10,7 +10,7 @@ const RestaurantMenu = () => {
 
   const fetchMenu = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.89960&lng=80.22090&restaurantId=748065&catalog_qa=undefined&submitAction=ENTER"
+      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.89960&lng=80.22090&restaurantId=117767&catalog_qa=undefined&submitAction=ENTER"
     );
 
     const json = await data.json();
@@ -40,9 +40,12 @@ const RestaurantMenu = () => {
       <h4>{cuisines.join(", ")} - {costForTwoMessage}</h4>
       <h4>ratings :- {avgRating}</h4>
       <ul>
-        <li>Briyani</li>
+        {/* {itemCards.map((item)=> 
+        <li key={item?.card?.info?.id}>{item?.card?.info?.name} - Rs. {item?.card?.info?.price/100}</li>)} */}
+        {/* <li>{itemCards?.[0]?.card?.info?.name}</li>
+        <li>{itemCards?.[1]?.card?.info?.name}</li>
         <li>Burgers</li>
-        <li>Diet Coke</li>
+        <li>Diet Coke</li> */}
       </ul>
     </div>
   );
