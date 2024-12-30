@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
 import {useState, useEffect} from "react";
 import Shimmer from "./Shrimmer";
+import { Link } from "react-router-dom";
 
 
 
@@ -112,7 +113,7 @@ const fetchData = async () =>{
               {/* Use map to iterate over resList 
               not using key(not acceptable)<<<<< index as key <<< unique key*/}
               {filteredRestaurant.map((restaurant) => (
-                    <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+                   <Link key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id}> <RestaurantCard  resData={restaurant} /></Link>
                 ))}
                 {/* <RestaurantCard resName="KFC" cusain="Hand Burker, Fries"/> */}
             </div>
