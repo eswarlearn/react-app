@@ -15,7 +15,8 @@ const [listOfRestaurants , setlistOfRestaurants] = useState([]);
 const[filteredRestaurant,setFilteredRestaurant] = useState([]);
 //whenever the state variable is updated whole body component is re-rendered or reconcilated
 const [searchText, setSearchText]=useState("");
-console.log('body render');
+
+// console.log('body render');
 
 //useState(resList); mockdata is removed
 //useEffect is a  function with two arguments(below) , which is call after the body component is rendered
