@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
 import {useState, useEffect} from "react";
 import Shimmer from "./Shrimmer";
+import { Link } from "react-router-dom";
 
 
 
@@ -14,7 +15,8 @@ const [listOfRestaurants , setlistOfRestaurants] = useState([]);
 const[filteredRestaurant,setFilteredRestaurant] = useState([]);
 //whenever the state variable is updated whole body component is re-rendered or reconcilated
 const [searchText, setSearchText]=useState("");
-console.log('body render');
+
+// console.log('body render');
 
 //useState(resList); mockdata is removed
 //useEffect is a  function with two arguments(below) , which is call after the body component is rendered
@@ -112,7 +114,7 @@ const fetchData = async () =>{
               {/* Use map to iterate over resList 
               not using key(not acceptable)<<<<< index as key <<< unique key*/}
               {filteredRestaurant.map((restaurant) => (
-                    <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+                   <Link key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id}> <RestaurantCard  resData={restaurant} /></Link>
                 ))}
                 {/* <RestaurantCard resName="KFC" cusain="Hand Burker, Fries"/> */}
             </div>
